@@ -8,7 +8,7 @@ It is a basic CRUD app aimed at solving different API needs in the purest form p
 ## Project Scope
 - CRUD operations for GET, POST, PATCH, DELETE items in a product portfolio
 - Async operation for large backgroundjobs
-- Websocket for giving feedback on status and final state of background jobs
+- Websocket/http streaming for giving feedback on status and final state of background jobs
 - Login and authorization functionality
 
 ## Development

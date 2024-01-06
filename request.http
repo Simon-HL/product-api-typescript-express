@@ -1,4 +1,31 @@
 @local = http://localhost:3000
 
-GET {{local}}/ HTTP/2.0
+GET {{local}}/products HTTP/2.0
+Accept: application/json
+###
+
+GET {{local}}/products/1 HTTP/2.0
+Accept: application/json
+###
+
+POST {{local}}/products HTTP/2.0
+Content-Type: application/json
+
+{
+    "id": 2,
+    "name": "car",
+    "price": 1000,
+    "quantity": 5
+}
+###
+
+PATCH {{local}}/products/2 HTTP/2.0
+Content-Type: application/json
+
+{
+    "quantity": 3
+}
+###
+
+DELETE {{local}}/products/2 HTTP/2.0
 ###
