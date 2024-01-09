@@ -1,6 +1,6 @@
 # Product API
 
-`Typescript` - `Express` - `Kysely`
+`Typescript` - `Express` - `Kysely` - `PostgreSQL` - `Docker`
 
 This is a typescript imlementation of my product-api project used to compare languages and frameworks. See more details (TBD)  
 It is a basic CRUD app aimed at solving different API needs in the purest form possible and best practises with the tools selected.
