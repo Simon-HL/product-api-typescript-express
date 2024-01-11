@@ -8,7 +8,8 @@
     "watch": "tsc --watch",
     "test": "node --test",
     "start": "ts-node src/index.ts",
-    "serve": "node dist/index.js"
+    "serve": "node dist/src/index.js",
+    "migrate:latest": "node dist/src/models/migrateToLatest.js"
   },
   "keywords": [],
   "author": "",

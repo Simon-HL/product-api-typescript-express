@@ -10,10 +10,10 @@ export interface Database {
 
 const dialect = new PostgresDialect({
     pool: new Pool({
-        database: 'test',
-        host: 'localhost',
-        user: 'admin',
-        port: 5434,
+        database: process.env.DB_NAME,
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        port: Number(process.env.DB_PORT),
         max: 10
     })
 })
