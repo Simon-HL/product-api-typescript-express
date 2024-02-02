@@ -6,23 +6,23 @@ export const productsTestData: Product[] = [
         name: "Pen",
         price: 1,
         quantity: 100,
-        dateCreated: '',
-        dateModified: ''
+        created_at: '',
+        updated_at: ''
     },
     {
         id: 2,
         name: "Bucket",
         price: 10,
         quantity: 5,
-        dateCreated: '',
-        dateModified: ''
+        created_at: '',
+        updated_at: ''
     },
     {
         id: 3,
         name: "Shovel",
         price: 3,
         quantity: 10,
-        dateCreated: '',
-        dateModified: ''
+        created_at: '',
+        updated_at: ''
     },
 ]

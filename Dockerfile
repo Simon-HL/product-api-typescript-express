@@ -12,6 +12,5 @@ COPY dist dist
 USER node
 
 EXPOSE 3000
-HEALTHCHECK CMD curl --fail http://localhost:3000 || exit 1  
 
 CMD  ["npm", "run", "serve"]

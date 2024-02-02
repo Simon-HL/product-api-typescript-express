@@ -14,10 +14,14 @@ async function migrateToLatest() {
     dialect: new PostgresDialect({
       pool: new Pool({
         host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
       }),
     }),
   })
+
+  const migrationFolder = path.join(process.cwd(), 'dist', 'src', 'models', 'migrations');
 
   const migrator = new Migrator({
     db,
@@ -25,7 +29,7 @@ async function migrateToLatest() {
       fs,
       path,
       // This needs to be an absolute path.
-      migrationFolder: path.join(__dirname, 'src/models/migrations'),
+      migrationFolder,
     }),
   })
 

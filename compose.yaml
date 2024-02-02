@@ -1,0 +1,30 @@
+services:
+  api:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    command: sh -c "npm run migrate:latest && npm run serve"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - PGUSER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    healthcheck:
+      test: ["CMD-SHELL", "psql -h localhost -U postgres -c 'SELECT 1;'"]
+      interval: 1s
+      timeout: 5s
+      retries: 5
+      start_period: 10s

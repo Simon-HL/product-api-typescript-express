@@ -10,7 +10,8 @@
     "start": "ts-node src/index.ts",
     "serve": "node dist/src/index.js",
     "docker:build": "docker build --tag product-api-ts .",
-    "docker:start": "docker run -p 3000:3000 --rm product-api-ts",
+    "docker:compose": "docker compose up",
+    "docker:start:api": "docker run -p 3000:3000 --rm product-api-ts",
     "migrate:latest": "node dist/src/models/migrateToLatest.js"
   },
   "keywords": [],

@@ -10,6 +10,7 @@ It is a basic CRUD app aimed at solving different API needs in the purest form p
 - Async operation for large backgroundjobs
 - Websocket/http streaming for giving feedback on status and final state of background jobs
 - Login and authorization functionality
+- Error handling
 
 ## Development
 ### Getting started

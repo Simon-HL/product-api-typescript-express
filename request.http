@@ -4,7 +4,7 @@ GET {{local}}/products HTTP/2.0
 Accept: application/json
 ###
 
-GET {{local}}/products/1 HTTP/2.0
+GET {{local}}/products/2 HTTP/2.0
 Accept: application/json
 ###
 
@@ -12,9 +12,8 @@ POST {{local}}/products HTTP/2.0
 Content-Type: application/json
 
 {
-    "id": 2,
-    "name": "car",
-    "price": 1000,
+    "name": "bike",
+    "price": 100,
     "quantity": 5
 }
 ###

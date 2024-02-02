@@ -11,8 +11,8 @@ export interface ProductTable {
     name: string
     price: number
     quantity: number
-    dateCreated: ColumnType<string, string | undefined, never>
-    dateModified: ColumnType<string, string | undefined, string | undefined>
+    created_at: ColumnType<string, string | undefined, never>
+    updated_at: ColumnType<string, string | undefined, string | undefined>
 }
 
 export type Product = Selectable<ProductTable>
