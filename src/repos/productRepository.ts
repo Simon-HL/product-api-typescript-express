@@ -1,5 +1,6 @@
 import { db } from '../models/database'
 import { Product, NewProduct, ProductUpdate } from '../models/productModel'
+import { formatISO } from 'date-fns'
 
 export class ProductRepository {
     async get(): Promise<Product[]> {
@@ -16,16 +17,20 @@ export class ProductRepository {
     }
     
     async update(id: number, payload: ProductUpdate): Promise<Product> {
+        const timestamp = formatISO(new Date())
+        
         return await db.updateTable('product')
-            .set(payload)    
+            .set({...payload, updated_at: timestamp})    
             .where('id', '=', id)
             .returningAll()
             .executeTakeFirstOrThrow()
     }
     
     async create(product: NewProduct): Promise<Product> {
+        const timestamp = formatISO(new Date())
+
         return await db.insertInto('product')
-            .values(product)
+            .values({...product, created_at: timestamp})
             .returningAll()
             .executeTakeFirstOrThrow()
     }

@@ -1,11 +1,11 @@
 import { Router, Request, Response } from 'express'
 import { ProductService } from '../services/productService'
 
-export function createProductRouter(_service: ProductService) {   
+export function createProductRouter(service: ProductService) {   
     const router = Router()
 
     router.get('/', async (req: Request, res: Response) => {
-        const products = await _service.get()
+        const products = await service.get()
     
         res.json(products)
     })
@@ -13,7 +13,7 @@ export function createProductRouter(_service: ProductService) {
     router.get('/:id', async (req: Request, res: Response) => {
         const id = Number(req.params.id)
 
-        const product = await _service.getById(id)
+        const product = await service.getById(id)
     
         res.json(product)
     })
@@ -22,7 +22,7 @@ export function createProductRouter(_service: ProductService) {
         const newProduct = req.body
         console.log(newProduct)
 
-        await _service.create(newProduct)
+        await service.create(newProduct)
 
         res.status(201).json(newProduct)
     })
@@ -31,7 +31,7 @@ export function createProductRouter(_service: ProductService) {
         const id = Number(req.params.id)
         const payload = req.body
 
-        await _service.update(id, payload)
+        await service.update(id, payload)
 
         res.status(204).send()
     })
@@ -39,7 +39,7 @@ export function createProductRouter(_service: ProductService) {
     router.delete('/:id', async (req: Request, res: Response) => {
         const id = Number(req.params.id)
 
-        await _service.delete(id)
+        await service.delete(id)
 
         res.status(204).send()
     })
